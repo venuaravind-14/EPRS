@@ -90,8 +90,12 @@ exports.createUser = async (req, res) => {
     });
   } catch (error) {
     console.error('Error creating user:', error.message);
-    res.status(500).json({ message: 'User Name Already Exist', error: error.message });
+    if (error.code === 11000) {
+      return res.status(400).json({ message: 'Username or email already exists' });
+    }
+    res.status(500).json({ message: 'Internal server error', error: error.message });
   }
+
 };
 
 // Fetch all users (HR functionality)

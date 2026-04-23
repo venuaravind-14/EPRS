@@ -494,8 +494,9 @@ const GoalManagement = () => {
                   Goal Management
                 </Typography>
                 <Typography variant="h6" sx={{ opacity: 0.9 }}>
-                  Manage your organization's goals and track progress
+                  Manage your organization&apos;s goals and track progress
                 </Typography>
+
               </CardContent>
             </StyledCard>
           </Fade>
@@ -714,7 +715,7 @@ const GoalManagement = () => {
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogContent>
               <Typography>
-                Are you sure you want to delete the goal "{goalToDelete?.projectTitle}"?
+                Are you sure you want to delete the goal &quot;{goalToDelete?.projectTitle}&quot;?
               </Typography>
             </DialogContent>
             <DialogActions>

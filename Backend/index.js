@@ -33,6 +33,8 @@ app.use('/api/taskReviews', require('./routes/taskReviewRoutes'));
 app.use('/api/notifications', require('./routes/notificationRoutes'));
 app.use('/api/self-assessments', require('./routes/selfAssessmentRoutes'));
 app.use('/api/profile', require('./routes/profileRoutes'));
+app.use('/api/hr', require('./routes/hrRoutes'));
+
 
 // Error Handler Middleware
 app.use(errorHandler);

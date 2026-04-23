@@ -486,8 +486,9 @@ const TaskManagement = () => {
                 Task Management
               </Typography>
               <Typography variant="h6" sx={{ opacity: 0.9 }}>
-                Manage your organization's tasks efficiently
+                Manage your organization&apos;s tasks efficiently
               </Typography>
+
             </CardContent>
           </StyledCard>
         </Fade>
@@ -713,7 +714,7 @@ const TaskManagement = () => {
           <DialogTitle>Confirm Deletion</DialogTitle>
           <DialogContent>
             <Typography>
-              Are you sure you want to delete the task "{taskToDelete?.taskTitle}"?
+              Are you sure you want to delete the task &quot;{taskToDelete?.taskTitle}&quot;?
               <br />
               This action cannot be undone.
             </Typography>
