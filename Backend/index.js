@@ -17,6 +17,11 @@ app.use(express.json());
 app.use(cors());
 app.use('/uploads', express.static('uploads'));
 
+// Root Route
+app.get('/', (req, res) => {
+  res.send('EPRS API is running...');
+});
+
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
