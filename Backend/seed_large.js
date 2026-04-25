@@ -277,8 +277,9 @@ const seedEnterprise = async () => {
         console.log(`- ${hrDirector.username} / password123`);
         console.log('MANAGERS:');
         managers.forEach(m => console.log(`- ${m.username} / password123`));
-        console.log('EMPLOYEES (First 15):');
-        employees.slice(0, 15).forEach(e => console.log(`- ${e.username} / password123`));
+        console.log('EMPLOYEES:');
+        employees.forEach(e => console.log(`- ${e.username} / password123`));
+
 
         process.exit(0);
     } catch (err) {
