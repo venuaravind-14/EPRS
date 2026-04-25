@@ -282,17 +282,7 @@ const RevXHomepage = () => {
                       <NotificationsIcon />
                     </Badge>
                   </IconButton>
-                  <Link href="/auth/signin" passHref>
-                  <Button
-                    color="inherit"
-                    sx={{
-                      mr: 1,
-                      '&:hover': { color: '#00bcd4' }
-                    }}
-                  >
-                    Sign In
-                  </Button>
-                  </Link>
+
                   <Link href="/auth/signin" passHref>
                   <Button
                     variant="contained"

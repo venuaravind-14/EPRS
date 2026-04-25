@@ -48,9 +48,10 @@ const taskReviewSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['Pending', 'Completed'],
+    enum: ['Pending', 'In-Review', 'Completed', 'Scheduled'],
     default: 'Pending',
   },
+
   employeeReview: {
     type: String,
     trim: true, // Review submitted by the employee

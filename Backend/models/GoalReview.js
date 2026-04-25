@@ -34,9 +34,10 @@ const goalReviewSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['Pending', 'Completed'],
+    enum: ['Pending', 'In-Review', 'Completed', 'Scheduled'],
     default: 'Pending', // Tracks if the review is done
   },
+
   managerReview: {
     type: String,
     trim: true, //Review  from the manager

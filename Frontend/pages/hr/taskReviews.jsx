@@ -98,12 +98,24 @@ const StatusChip = styled(Chip)(({ theme, status }) => ({
   minWidth: '100px',
   textAlign: 'center',
   ...(status === 'Pending' && {
-    backgroundColor: "#d3d3d3", 
-    color: "#000", 
+    backgroundColor: "#FFEBEE", 
+    color: "#D32F2F", 
+    border: '1px solid #FFCDD2'
+  }),
+  ...(status === 'In-Review' && {
+    backgroundColor: "#FFF3E0", 
+    color: "#E65100", 
+    border: '1px solid #FFE0B2'
   }),
   ...(status === 'Completed' && {
-    backgroundColor: "#90ee90", 
-    color: "#000", 
+    backgroundColor: "#E8F5E9", 
+    color: "#2E7D32", 
+    border: '1px solid #C8E6C9'
+  }),
+  ...(status === 'Scheduled' && {
+    backgroundColor: "#E3F2FD", 
+    color: "#1565C0", 
+    border: '1px solid #BBDEFB'
   }),
 }));
 
@@ -921,8 +933,9 @@ const TaskReviewManagement = () => {
                             <InputLabel>Status</InputLabel>
                             <Select name="status" value={newReview.status} onChange={handleInputChange} label="Status">
                                 <MenuItem value="Pending">Pending</MenuItem>
-                                <MenuItem value="In Progress">In Progress</MenuItem>
+                                <MenuItem value="In-Review">In-Review</MenuItem>
                                 <MenuItem value="Completed">Completed</MenuItem>
+                                <MenuItem value="Scheduled">Scheduled</MenuItem>
                             </Select>
                         </FormControl>
                     </Grid>

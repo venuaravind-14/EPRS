@@ -76,21 +76,38 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const StatusChip = styled(Box)(({ status }) => {
-  let bgColor = "#ffcccb";
-  if (status === "In Progress") bgColor = "#add8e6";
-  else if (status === "Completed") bgColor = "#90ee90";
+  let bgColor = "#FFEBEE";
+  let color = "#D32F2F";
+  let border = '1px solid #FFCDD2';
+
+  if (status === "In-Review") {
+    bgColor = "#FFF3E0";
+    color = "#E65100";
+    border = '1px solid #FFE0B2';
+  } else if (status === "Completed") {
+    bgColor = "#E8F5E9";
+    color = "#2E7D32";
+    border = '1px solid #C8E6C9';
+  } else if (status === "Scheduled") {
+    bgColor = "#E3F2FD";
+    color = "#1565C0";
+    border = '1px solid #BBDEFB';
+  }
+
   return {
     backgroundColor: bgColor,
-    color: "#000",
+    color: color,
+    border: border,
     borderRadius: "12px",
     padding: "6px 16px",
     fontWeight: 600,
     textTransform: "capitalize",
     display: "inline-block",
-    minWidth: 90,
+    minWidth: 100,
     textAlign: "center",
   };
 });
+
 
 const ActionButton = styled(Button)(({ theme }) => ({
   borderRadius: 25,
