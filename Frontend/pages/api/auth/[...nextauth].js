@@ -31,9 +31,11 @@ export default NextAuth({
 
           throw new Error("Invalid credentials");
         } catch (error) {
-          console.error("Authorization error:", error.response?.data || error.message);
+          console.error("DEBUG - Auth URL:", `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/login`);
+          console.error("DEBUG - Authorization error:", error.response?.data || error.message);
           throw new Error(error.response?.data?.message || "Login failed");
         }
+
       },
     }),
   ],
