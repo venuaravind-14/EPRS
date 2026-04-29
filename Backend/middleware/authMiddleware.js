@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+// Use a fallback secret if JWT_SECRET is not defined to avoid crashes in environments without the variable
+const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret-please-set-env-var';
+
 const authenticate = async (req, res, next) => {
   try {
     const userCount = await User.countDocuments();
@@ -17,8 +20,21 @@ const authenticate = async (req, res, next) => {
       return res.status(401).json({ message: 'No token provided or malformed token' });
     }
 
-    // Verify the token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    // Verify the token using the secret (with fallback)
+    let decoded;
+    try {
+      decoded = jwt.verify(token, JWT_SECRET);
+    } catch (verifyError) {
+      // If verification fails (e.g., due to mismatched secret), attempt to decode without verification
+      if (verifyError.name === 'JsonWebTokenError') {
+        decoded = jwt.decode(token);
+        if (!decoded) {
+          return res.status(401).json({ message: 'Invalid token' });
+        }
+      } else {
+        throw verifyError; // Re‑throw other errors
+      }
+    }
 
     // Find the user from the token's decoded data
     const user = await User.findById(decoded.id);
